@@ -9,6 +9,9 @@ Node.js 0.10+ and MongoDB v2.4+ installed.
 To resolve dependencies you need to run in project folder:   
     `npm install`
 
+###Create Database
+To import the database run:
+    `mongorestore --gzip --archive=my-site.db`
 
 ###Running the app
 To run in project folder execute: 
