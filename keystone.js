@@ -32,10 +32,12 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
-	posts: ['posts', 'post-categories'],
-	galleries: 'galleries',
-	enquiries: 'enquiries',
-	users: 'users',
+	// posts: ['posts', 'conferences'],
+	posts: 'posts',
+	conferences: 'conferences',
+	// galleries: 'galleries',
+	// enquiries: 'enquiries',
+	// users: 'users',
 });
 
 
