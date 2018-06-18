@@ -1,0 +1,29 @@
+extends ../layouts/default
+
+block content
+	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+		article
+			p: a(href='/conferences') &larr; back to the blog
+			hr
+			if !data.conference
+				h2 Invalid Conference.
+			else
+				header
+					h1= data.conference.name
+					h5 Posted
+						if data.conference.date
+							| on #{data.conference._.date.format('MMMM Do, YYYY')}
+						if data.conference.categories && data.conference.categories.length
+							| in
+							each cat, cat_i in data.conference.categories
+								a(href='/blog/' + cat.key)= cat.name
+								if cat_i < data.conference.categories.length - 1
+									| ,
+								else
+									|
+						if data.conference.author
+							| by #{data.conference.author.name.first}
+				.conference
+					if data.conference.image.exists
+						.image-wrap: img(src=data.conference._.image.fit(750,450)).img-responsive
+					!= data.conference.content.full
